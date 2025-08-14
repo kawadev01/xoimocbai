@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xôi Ngon Mộc Bài - Hương vị truyền thống, chất lượng hiện đại</title>
+    <meta name="description" content="Khám phá hương vị xôi truyền thống với công thức độc đáo tại Xôi Ngon Mộc Bài. Đặt hàng ngay để thưởng thức những món xôi thơm ngon nhất.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #fef7e0 0%, #faf5e6 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fef7e0;
+        }
+
+        .logo span {
+            color: #ffd700;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #cd853f 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #8b4513;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #8b4513;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #8b4513;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature i {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fef7e0 0%, #faf5e6 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(139, 69, 19, 0.8));
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fef7e0 0%, #faf5e6 100%);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .menu-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #8b4513;
+        }
+
+        .menu-item p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            color: #ffd700;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #8b4513;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    Xôi Ngon <span>Mộc Bài</span>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#about">Về chúng tôi</a></li>
+                        <li><a href="#gallery">Thư viện</a></li>
+                        <li><a href="#menu">Thực đơn</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h1>Xôi Ngon Mộc Bài</h1>
+                <p>Khám phá hương vị xôi truyền thống với công thức độc đáo, nguyên liệu tươi ngon và cách chế biến cẩn thận. Mỗi món xôi là một tác phẩm nghệ thuật ẩm thực.</p>
+                <a href="#menu" class="cta-button">Khám phá thực đơn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Về Xôi Ngon Mộc Bài</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hương vị truyền thống, chất lượng hiện đại</h3>
+                    <p>Xôi Ngon Mộc Bài tự hào mang đến những món xôi thơm ngon với công thức được truyền từ đời này sang đời khác. Chúng tôi cam kết sử dụng nguyên liệu tươi ngon nhất và quy trình chế biến cẩn thận để tạo ra những món xôi hoàn hảo.</p>
+                    <p>Với kinh nghiệm nhiều năm trong nghề, chúng tôi hiểu rõ cách kết hợp các nguyên liệu để tạo ra hương vị độc đáo, đậm đà mà vẫn giữ được nét truyền thống của ẩm thực Việt Nam.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Nguyên liệu tươi ngon</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Công thức truyền thống</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Chế biến cẩn thận</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hương vị độc đáo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/xoi1.png" alt="Xôi truyền thống">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Thư viện ảnh</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/photo_1_2025-08-15_04-08-09.jpg" alt="Xôi đặc biệt">
+                    <div class="gallery-overlay">
+                        <h4>Xôi đặc biệt</h4>
+                        <p>Hương vị truyền thống với topping phong phú</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/photo_2_2025-08-15_04-08-09.jpg" alt="Xôi gà">
+                    <div class="gallery-overlay">
+                        <h4>Xôi gà</h4>
+                        <p>Gà luộc thơm ngon với xôi dẻo</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/photo_3_2025-08-15_04-08-09.jpg" alt="Xôi xéo">
+                    <div class="gallery-overlay">
+                        <h4>Xôi xéo</h4>
+                        <p>Xôi đậu xanh truyền thống</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/photo_4_2025-08-15_04-08-09.jpg" alt="Xôi ngũ sắc">
+                    <div class="gallery-overlay">
+                        <h4>Xôi ngũ sắc</h4>
+                        <p>Năm màu sắc, năm hương vị</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/photo_5_2025-08-15_04-08-09.jpg" alt="Xôi vò">
+                    <div class="gallery-overlay">
+                        <h4>Xôi vò</h4>
+                        <p>Xôi dẻo thơm với đậu xanh</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/photo_6_2025-08-15_04-08-09.jpg" alt="Xôi khúc">
+                    <div class="gallery-overlay">
+                        <h4>Xôi khúc</h4>
+                        <p>Xôi lá cẩm đặc biệt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Quy trình chế biến</h2>
+            <div class="video-container">
+                <video controls>
+                    <source src="assets/IMG_9668.MOV" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Thực đơn của chúng tôi</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="assets/photo_7_2025-08-15_04-08-09.jpg" alt="Xôi đặc biệt">
+                    <h4>Xôi đặc biệt</h4>
+                    <p>Xôi dẻo thơm với đầy đủ topping: gà luộc, chả lụa, trứng cút, đậu xanh</p>
+                    <div class="price">50K - 80K - 100K</div>
+                </div>
+                <div class="menu-item">
+                    <img src="assets/photo_8_2025-08-15_04-08-09.jpg" alt="Xôi gà">
+                    <h4>Xôi gà</h4>
+                    <p>Gà luộc thơm ngon với xôi dẻo, nước mắm pha chế đặc biệt</p>
+                    <div class="price">40K - 60K - 80K</div>
+                </div>
+                <div class="menu-item">
+                    <img src="assets/photo_9_2025-08-15_04-08-09.jpg" alt="Xôi xéo">
+                    <h4>Xôi xéo</h4>
+                    <p>Xôi đậu xanh truyền thống, dẻo thơm với hành phi</p>
+                    <div class="price">30K - 45K - 60K</div>
+                </div>
+                <div class="menu-item">
+                    <img src="assets/photo_10_2025-08-15_04-08-09.jpg" alt="Xôi ngũ sắc">
+                    <h4>Xôi ngũ sắc</h4>
+                    <p>Năm màu sắc tự nhiên, năm hương vị độc đáo</p>
+                    <div class="price">35K - 50K - 70K</div>
+                </div>
+                <div class="menu-item">
+                    <img src="assets/photo_11_2025-08-15_04-08-09.jpg" alt="Xôi vò">
+                    <h4>Xôi vò</h4>
+                    <p>Xôi dẻo thơm với đậu xanh, hành phi giòn rụm</p>
+                    <div class="price">25K - 35K - 50K</div>
+                </div>
+                <div class="menu-item">
+                    <img src="assets/photo_12_2025-08-15_04-08-09.jpg" alt="Xôi khúc">
+                    <h4>Xôi khúc</h4>
+                    <p>Xôi lá cẩm đặc biệt với nhân đậu xanh</p>
+                    <div class="price">30K - 45K - 60K</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: #FFF;">Liên hệ đặt hàng</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Thông tin liên hệ</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bavet - Cambodia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+855718191710" style="color: #FFF;">+855 71 819 1710</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="https://t.me/Xoithitquan1993" style="color: #FFF;">Xoithitquan1993</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mở cửa: 24/7</span>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem;">Tại sao chọn chúng tôi?</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-star" style="color: #ffd700; margin-right: 0.5rem;"></i>Nguyên liệu tươi ngon, chất lượng cao</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-star" style="color: #ffd700; margin-right: 0.5rem;"></i>Công thức truyền thống độc đáo</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-star" style="color: #ffd700; margin-right: 0.5rem;"></i>Phục vụ nhanh chóng, nhiệt tình</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-star" style="color: #ffd700; margin-right: 0.5rem;"></i>Giá cả hợp lý, chất lượng đảm bảo</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Đặt hàng ngay</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Họ và tên</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Địa chỉ</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="order">Món ăn muốn đặt</label>
+                            <textarea id="order" name="order" placeholder="Ví dụ: 2 xôi đặc biệt, 1 xôi gà..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Đặt hàng ngay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2024 Xôi Ngon Mộc Bài. Tất cả quyền được bảo lưu.</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-zalo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cảm ơn bạn đã đặt hàng! Chúng tôi sẽ liên hệ sớm nhất có thể.');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(139, 69, 19, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #8b4513 0%, #a0522d 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
